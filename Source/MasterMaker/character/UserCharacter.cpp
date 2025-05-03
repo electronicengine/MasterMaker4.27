@@ -454,8 +454,6 @@ void AUserCharacter::OnInteractBegin(UPrimitiveComponent* OverlappedComp, AActor
         GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_None);
         GetCharacterMovement()->DisableMovement();
 
-        UUserWidget* widget = Game_Instance->loadChatBoxPanel();
-        Cast<UChatBoxWidget>(widget)->setInterlocutor(OtherActor);
     }
 
     if (Builder_Mode_Enable == false && Cast<IPlugInterface>(OtherActor) && !Cast<AUserCharacter>(OtherActor)) {

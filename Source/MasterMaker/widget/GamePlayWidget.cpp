@@ -84,6 +84,7 @@ void UGamePlayWidget::Button_SaveClicked()
 
 void UGamePlayWidget::Button_SettingsClicked()
 {
+	Cast<UMasterMakerGameInstance>(GetGameInstance())->loadSettingsPanel();
 }
 
 void UGamePlayWidget::Button_PlugClicked()

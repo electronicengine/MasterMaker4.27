@@ -98,10 +98,6 @@ public:
     //UFUNCTION()
     //    void Button_StopClicked();
 
-            // Set this from the editor to your Blueprint widget
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-    TSubclassOf<USettingsWidget> Settigs_Widget_Container;
-
 
     void setInteractButtonVisibilty(ESlateVisibility Val);
     void setFireButtonVisibilty(ESlateVisibility Val);

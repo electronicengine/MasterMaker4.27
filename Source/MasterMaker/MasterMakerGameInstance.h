@@ -113,8 +113,10 @@ class MASTERMAKER_API UMasterMakerGameInstance : public UGameInstance
         TSubclassOf<class UUserWidget> GamePlay_Panel_Container;
 
     UPROPERTY(EditAnywhere, Category = "UI")
-        TSubclassOf<class UUserWidget> ChatBox_Panel_Container;
+        TSubclassOf<class UUserWidget> Settings_Panel_Container;
 
+    UPROPERTY(EditAnywhere, Category = "UI")
+        TSubclassOf<class UUserWidget> Llama_Panel_Container;
 
     UBlueprintGeneratedClass* GeneratedClass;
 
@@ -152,14 +154,18 @@ public:
     UUserWidget* SaveGame_Panel;
     UUserWidget* SandBox_Panel;
     UUserWidget* GamePlay_Panel;
-    UUserWidget* ChatBox_Panel;
+    UUserWidget* Settings_Panel;
+    UUserWidget* Llama_Panel;
+
 
     UUserWidget* savePanel(IComposerInterface* Item, FVector ImpactPoint);
 
-    UUserWidget* loadChatBoxPanel();
+    UUserWidget* loadSettingsPanel();
     UUserWidget* loadSandBoxPanel();
     UUserWidget* loadCharacterPanel();
     UUserWidget* loadMultiplayerPanel();
+    UUserWidget* loadLlamaPanel();
+
 
     ABrick* spawnBrick(const FItemOptions& Item, const FVector& SpawnLocation, const FRotator& SpawnRotation, FActorSpawnParameters Params = FActorSpawnParameters());
     AVehicleBase* spawnVehicle(const FItemOptions& Item, const FVector& SpawnLocation, const FRotator& SpawnRotation, FActorSpawnParameters Params = FActorSpawnParameters());

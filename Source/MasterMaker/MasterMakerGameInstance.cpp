@@ -336,66 +336,31 @@ UUserWidget* UMasterMakerGameInstance::savePanel(IComposerInterface* Item, FVect
     return SaveGame_Panel;
 }
 
-UUserWidget* UMasterMakerGameInstance::loadChatBoxPanel()
+
+UUserWidget* UMasterMakerGameInstance::loadSettingsPanel()
 {
-    APlayerController* controller = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-
-
-
-    if (ChatBox_Panel == nullptr)
-    {
-        ChatBox_Panel = CreateWidget<UUserWidget>(this, ChatBox_Panel_Container);
-        ChatBox_Panel->AddToViewport();
-
-        controller->bShowMouseCursor = true;
-        controller->bEnableClickEvents = true;
-        controller->bEnableMouseOverEvents = true;
-        controller->bEnableTouchEvents = true;
-
-        ChatBox_Panel->SetVisibility(ESlateVisibility::Visible);
-
-        controller->SetInputMode(FInputModeUIOnly());
+ 
+    if (Settings_Panel) {
+        Settings_Panel->SetVisibility(ESlateVisibility::Visible);
     }
     else {
-
-        if (ChatBox_Panel->GetVisibility() == ESlateVisibility::Visible)
-        {
-            ChatBox_Panel->SetVisibility(ESlateVisibility::Collapsed);
-            controller->SetInputMode(FInputModeGameOnly());
-            controller->bShowMouseCursor = false;
-        }
-        else {
-            ChatBox_Panel->SetVisibility(ESlateVisibility::Visible);
-            controller->SetInputMode(FInputModeUIOnly());
-
-            controller->bShowMouseCursor = true;
-        }
-
+        Settings_Panel = CreateWidget<UUserWidget>(this, Settings_Panel_Container);
+        Settings_Panel->AddToViewport();
+        Settings_Panel->SetVisibility(ESlateVisibility::Visible);
     }
 
-
-
-    return ChatBox_Panel;
+    GamePlay_Panel->SetVisibility(ESlateVisibility::Hidden);
+    return Settings_Panel;
 }
-
 
 UUserWidget* UMasterMakerGameInstance::loadSandBoxPanel()
 {
     APlayerController* controller = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 
-
     if (SandBox_Panel == nullptr)
     {
-        /*     if(GamePlay_Panel != nullptr)
-             {
-                 GamePlay_Panel->RemoveFromParent();
-                 GamePlay_Panel = nullptr;
-             }*/
-
         SandBox_Panel = CreateWidget<UUserWidget>(this, SandBox_Panel_Container);
-
         SandBox_Panel->AddToViewport();
-
 
         controller->bShowMouseCursor = true;
         controller->bEnableClickEvents = true;
@@ -407,7 +372,6 @@ UUserWidget* UMasterMakerGameInstance::loadSandBoxPanel()
         controller->SetInputMode(FInputModeUIOnly());
     }
     else {
-
         if (SandBox_Panel->GetVisibility() == ESlateVisibility::Visible)
         {
             SandBox_Panel->SetVisibility(ESlateVisibility::Collapsed);
@@ -417,14 +381,9 @@ UUserWidget* UMasterMakerGameInstance::loadSandBoxPanel()
         else {
             SandBox_Panel->SetVisibility(ESlateVisibility::Visible);
             controller->SetInputMode(FInputModeUIOnly());
-
             controller->bShowMouseCursor = true;
         }
-
     }
-
-
-
     return SandBox_Panel;
 }
 
@@ -522,6 +481,20 @@ UUserWidget* UMasterMakerGameInstance::loadMultiplayerPanel()
     }
 
     return Multiplayer_Panel;
+}
+
+UUserWidget* UMasterMakerGameInstance::loadLlamaPanel()
+{
+    if (Llama_Panel) {
+        Llama_Panel->SetVisibility(ESlateVisibility::Visible);
+    }
+    else {
+        Llama_Panel = CreateWidget<UUserWidget>(this, Llama_Panel_Container);
+        Llama_Panel->AddToViewport();
+    }
+    GamePlay_Panel->SetVisibility(ESlateVisibility::Hidden);
+
+    return Llama_Panel;
 }
 
 
