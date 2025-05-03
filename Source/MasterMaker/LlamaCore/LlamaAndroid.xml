@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+	<init>
+		<log text="LlamaAndroid init"/>
+	</init>
+	<androidManifestUpdates>
+	</androidManifestUpdates>
+	<resourceCopies>
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/armeabi-v7a/libggml.so"
+			dst="$S(BuildDir)/libs/armeabi-v7a/libggml.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/armeabi-v7a/libggml-base.so"
+			dst="$S(BuildDir)/libs/armeabi-v7a/libggml-base.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/armeabi-v7a/libggml-cpu.so"
+			dst="$S(BuildDir)/libs/armeabi-v7a/libggml-cpu.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/armeabi-v7a/libllama.so"
+			dst="$S(BuildDir)/libs/armeabi-v7a/libllama.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/armeabi-v7a/libllama-android.so"
+			dst="$S(BuildDir)/libs/armeabi-v7a/libllama-android.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/armeabi-v7a/libomp.so"
+			dst="$S(BuildDir)/libs/armeabi-v7a/libomp.so" />
+
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/arm64-v8a/libggml.so"
+			dst="$S(BuildDir)/libs/arm64-v8a/libggml.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/arm64-v8a/libggml-base.so"
+			dst="$S(BuildDir)/libs/arm64-v8a/libggml-base.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/arm64-v8a/libggml-cpu.so"
+			dst="$S(BuildDir)/libs/arm64-v8a/libggml-cpu.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/arm64-v8a/libllama.so"
+			dst="$S(BuildDir)/libs/arm64-v8a/libllama.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/arm64-v8a/libllama-android.so"
+			dst="$S(BuildDir)/libs/arm64-v8a/libllama-android.so" />
+		<copyFile src="$S(ProjectDir)/Source/MasterMaker/LlamaCore/arm64-v8a/libomp.so"
+			dst="$S(BuildDir)/libs/arm64-v8a/libomp.so" />
+
+	</resourceCopies>
+	<soLoadLibrary>
+		<loadLibrary name="ggml" failmsg="ggml library not loaded"/>
+		<loadLibrary name="ggml-base" failmsg="ggml library not loaded"/>
+		<loadLibrary name="ggml-cpu" failmsg="ggml library not loaded"/>
+		<loadLibrary name="llama" failmsg="llama library not loaded"/>
+		<loadLibrary name="llama-android" failmsg="llama library not loaded"/>
+		<loadLibrary name="omp" failmsg="llama library not loaded"/>
+	</soLoadLibrary>
+</root>
